@@ -17,18 +17,21 @@ const NavBar = observer(() => {
         user.setIsAuth(false)
     }
 
+    console.log(user)
     return (
         <Navbar bg="dark" variant="dark">
             <Container>
                 <NavLink style={{color:'white'}} to={SHOP_ROUTE}>Товари</NavLink>
                 {user.isAuth ?
                     <Nav className="ml-auto" style={{color: 'white'}}>
+                       {user.user.role === 'ADMIN' ? 
                         <Button
                             variant={"outline-light"}
                             onClick={() => history.push(ADMIN_ROUTE)}
                         >
                             Адмін панель
-                        </Button>
+                        </Button> : null
+                        }
                         <Button
                             variant={"outline-light"}
                             onClick={() => logOut()}
