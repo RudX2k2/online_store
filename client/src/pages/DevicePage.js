@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import bigStar from '../assets/bigStar.png'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 import {fetchOneDevice} from "../http/deviceAPI";
 
 const DevicePage = () => {
@@ -34,7 +34,9 @@ const DevicePage = () => {
                         style={{width: 300, height: 300, fontSize: 32, border: '5px solid lightgray'}}
                     >
                         <h3>Від: {device.price} грн.</h3>
-                        <Button variant={"outline-dark"}>Добавити в корзину</Button>
+                        <Link to="/basket">
+                        <Button variant={"outline-dark"} >В корзину</Button>
+                        </Link>
                     </Card>
                 </Col>
             </Row>
